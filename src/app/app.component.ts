@@ -5,17 +5,16 @@ import { Component, Inject } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app';
-  array = ["Angular", "Github", "Firebase", "Nodejs", "MongoDB"]
+  
+  // array: string[] = ["Angular", "Github", "Firebase", "Nodejs", "MongoDB"]
 
-  public handler(){
-    this.title = "change"
+  constructor() {
+    // console.log(this.array)
+    // this.test = "rr"
   }
-
-  public alertName(name: string){
-    alert(name)
-  }
+  
 }
 
 

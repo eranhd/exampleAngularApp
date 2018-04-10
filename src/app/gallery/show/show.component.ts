@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GalleryService } from '../../servie/gallery/gallery.service';
+import { DatabaseService } from '../../servie/database/database.service';
 
 @Component({
   selector: 'app-show',
@@ -9,12 +10,14 @@ import { GalleryService } from '../../servie/gallery/gallery.service';
 })
 export class ShowComponent implements OnInit {
 
-  public id: number = 0 
+  public id: string = ""
   public image
-  constructor(public galleryService: GalleryService, private acRoute: ActivatedRoute) {
-    this.id = +this.acRoute.snapshot.params["id"];
-    this.image = this.galleryService.getById(this.id)
-   }
+  constructor(public dbService: DatabaseService, private acRoute: ActivatedRoute) {
+    this.id = this.acRoute.snapshot.params["id"];
+    this.dbService.getImageById(this.id).subscribe(res=>{
+      this.image = res
+    })
+  }
 
   ngOnInit() {
   }

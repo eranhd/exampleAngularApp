@@ -1,5 +1,5 @@
 <div class="gallery_all">
-  <div *ngFor="let image of galleryService.images; let i = index" class="all_image" routerLink="./show/{{i}}">
+  <div *ngFor="let image of images; let i = index" class="all_image" routerLink="./show/{{image.id}}">
     <h3>
       {{image.title ? image.title : 'No Title'}}
     </h3>

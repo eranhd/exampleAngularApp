@@ -19,7 +19,11 @@ import { SmartphoneComponent } from './gallery/smartphone/smartphone.component';
 import { AllComponent } from './gallery/all/all.component';
 import { ShowComponent } from './gallery/show/show.component';
 import { GalleryService } from './servie/gallery/gallery.service';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from "angularfire2"
+import { AngularFirestoreModule } from "angularfire2/firestore"
+import { DatabaseService } from './servie/database/database.service';
 
 @NgModule({
   declarations: [
@@ -40,11 +44,16 @@ import { GalleryService } from './servie/gallery/gallery.service';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     NavService,
-    GalleryService
+    GalleryService,
+    DatabaseService
   ],
   bootstrap: [AppComponent]
 })

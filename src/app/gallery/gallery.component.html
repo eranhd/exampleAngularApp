@@ -2,4 +2,35 @@
   Gallery
 </h2>
 
+<div>
+  <h3>
+    Add Image
+  </h3>
+  <div class="add_image_form">
+    <label>
+      Image Url
+      <input placeholder="Enter Image Url e.g. 'http://www.google.com/...'" [(ngModel)]="image.url">
+    </label>
+    <br>
+    <label>
+      Image Title
+      <input placeholder="e.g. My Home" [(ngModel)]="image.title">
+    </label>
+    <br>
+    <label>
+      Image Description
+      <input placeholder="e.g. My home in jerusalem" [(ngModel)]="image.description">
+    </label>
+    <br>
+    <label>
+      Image Category
+      <input placeholder="Each category is separated by a comma" [(ngModel)]="category">
+    </label>
+    <div class="div_add_button">
+      <button (click)=add()>Add</button>
+    </div>
+  </div>
+
+</div>
+
 <router-outlet></router-outlet>

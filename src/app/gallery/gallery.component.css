@@ -1,0 +1,26 @@
+.add_image_form{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    flex-wrap: wrap;
+    background-color: #cacaca;
+    box-shadow: 2px 2px 2px black;
+
+}
+label{
+    margin: 2%;
+    padding: 1%;
+    display: inline-block;
+    width: 44%;
+}
+
+input{
+    display: inline-block;
+    width: 100%;
+}
+
+.div_add_button{
+    text-align: right;
+    width: 100%;
+    padding: 16px;
+}
