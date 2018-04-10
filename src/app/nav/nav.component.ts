@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavService } from '../servie/nav/nav.service';
+import { AuthService } from '../servie/auth/auth.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { NavService } from '../servie/nav/nav.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(public navService: NavService) { }
+  constructor(public navService: NavService, public authService: AuthService) { }
 
   ngOnInit() {
   }

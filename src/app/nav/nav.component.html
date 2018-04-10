@@ -2,3 +2,8 @@
   <app-nav-item [item]=item></app-nav-item>
 </span>
 
+<span>
+  <button (click)="authService.loginWithGoogle()">Login With Google</button>
+  <button (click)="authService.logout()">Logout</button>
+</span>
+

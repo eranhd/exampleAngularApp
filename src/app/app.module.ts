@@ -24,6 +24,8 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from "angularfire2"
 import { AngularFirestoreModule } from "angularfire2/firestore"
 import { DatabaseService } from './servie/database/database.service';
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AuthService } from './servie/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -48,12 +50,15 @@ import { DatabaseService } from './servie/database/database.service';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
+
   ],
   providers: [
     NavService,
     GalleryService,
-    DatabaseService
+    DatabaseService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
