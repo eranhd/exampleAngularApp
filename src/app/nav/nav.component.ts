@@ -10,8 +10,18 @@ import { AuthService } from '../servie/auth/auth.service';
 })
 export class NavComponent implements OnInit {
 
+  email
+  pass
   constructor(public navService: NavService, public authService: AuthService) { }
 
+
+  async login(){
+    await this.authService.loginWithEmailAndPassword(this.email, this.pass)
+  }
+
+  async signUp(){
+    await this.authService.signupWithEmailAndPass(this.email, this.pass)
+  }
   ngOnInit() {
   }
 

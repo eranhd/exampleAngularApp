@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Image } from '../models/image.model';
 import { DatabaseService } from '../servie/database/database.service';
 import { AuthService } from '../servie/auth/auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from '../servie/auth/auth.service';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, OnDestroy {
 
   public image: Image = new Image();
   public category: string = "";
@@ -22,6 +22,10 @@ export class GalleryComponent implements OnInit {
     this.dbService.addImage(this.image);
     this.image = new Image();
     this.category = "";
+  }
+
+  ngOnDestroy(){
+    console.log("destroy gallery")
   }
 
 }

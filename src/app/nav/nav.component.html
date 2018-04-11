@@ -7,3 +7,15 @@
   <button (click)="authService.logout()">Logout</button>
 </span>
 
+<div>
+  <input placeholder="email" [(ngModel)]="email" >
+  <input type="password" placeholder="password" [(ngModel)]="pass" >
+  <button (click)="signUp()">SignUP</button>
+</div>
+
+<div>
+  <input placeholder="email" [(ngModel)]="email" >
+  <input type="password" placeholder="password" [(ngModel)]="pass" >
+  <button (click)="login()">Login</button>
+</div>
+

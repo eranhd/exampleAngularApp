@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GalleryService } from '../../servie/gallery/gallery.service';
 import { DatabaseService } from '../../servie/database/database.service';
 import { Image } from '../../models/image.model';
@@ -8,13 +8,14 @@ import { Image } from '../../models/image.model';
   templateUrl: './all.component.html',
   styleUrls: ['./all.component.scss']
 })
-export class AllComponent implements OnInit {
+export class AllComponent implements OnInit, OnDestroy {
 
   public images
+  private imageSub
   constructor(public galleryService: GalleryService, public dbService: DatabaseService) { }
 
   ngOnInit() {
-    this.dbService.getImages().subscribe(res => {
+    this.imageSub = this.dbService.getImages().subscribe(res => {
       // console.log(res[0].payload.doc.data());
       this.images = res.map(a => {
         const data = a.payload.doc.data() as Image;
@@ -22,6 +23,10 @@ export class AllComponent implements OnInit {
         return { id, ...data };
       })
     })
+  }
+
+  ngOnDestroy(){
+    this.imageSub.unsubscribe();
   }
 
 }

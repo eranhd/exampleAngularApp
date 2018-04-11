@@ -15,7 +15,11 @@ export class DatabaseService {
   }
 
   public getImages(){
+    this.imageCollections.valueChanges().subscribe(res => {
+      console.log(res)
+    })
     return this.imageCollections.snapshotChanges()
+    
   }
 
   public getImageById(id: string) {

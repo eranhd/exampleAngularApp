@@ -13,14 +13,27 @@ export class AuthService {
   public async loginWithGoogle() {
     let user = await this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     this._user = this.afAuth.auth.currentUser
+    // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(user => {
+    //   this._user = this.afAuth.auth.currentUser
+    // }).catch(err => {
+    //   throw new Error("Auth error");
+    // })
+    console.log(this._user)
+
   }
 
-  public async loginWithEmailAndPassword(email: string, pass: string){
+  public async loginWithEmailAndPassword(email: string, pass: string) {
     let user = await this.afAuth.auth.signInWithEmailAndPassword(email, pass)
     this._user = this.afAuth.auth.currentUser
   }
 
-  public get isLogin(){
+  public async signupWithEmailAndPass(email: string, pass: string) {
+    await this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
+  }
+
+
+
+  public get isLogin() {
     return this.afAuth.auth.currentUser != null;
   }
 

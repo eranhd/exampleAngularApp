@@ -21,6 +21,8 @@ import { ShowComponent } from './gallery/show/show.component';
 import { GalleryService } from './servie/gallery/gallery.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
+
+
 import { AngularFireModule } from "angularfire2"
 import { AngularFirestoreModule } from "angularfire2/firestore"
 import { DatabaseService } from './servie/database/database.service';
